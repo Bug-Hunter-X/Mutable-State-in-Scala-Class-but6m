@@ -1,0 +1,18 @@
+```scala
+case class MyClass(name: String, var age: Int) {
+  require(age >= 0, "Age cannot be negative")
+}
+
+object Main extends App {
+  val person = MyClass("Alice", 30)
+  println(person.age) // Output: 30
+
+  // Attempting to modify name will not compile with case class
+  // val person2 = person.copy(name = "Bob")
+  // println(person2.name)
+
+  // val newPerson = person.copy(age = -5) // throws exception in the constructor
+  val newPerson = person.copy(age = 35)
+  println(newPerson.age)
+}
+```
